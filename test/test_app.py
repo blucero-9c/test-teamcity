@@ -2,6 +2,7 @@ import unittest
 import os
 from app.app import app  # adjust path if needed
 
+
 class TestColorApp(unittest.TestCase):
 
     def setUp(self):
@@ -20,6 +21,7 @@ class TestColorApp(unittest.TestCase):
         response = self.app.get('/')
         self.assertEqual(response.status_code, 500)
         self.assertIn(b'Invalid color', response.data)
+
     def test_default_color(self):
         """Default color should be used if BG_COLOR not set."""
         os.environ.pop('BG_COLOR', None)
@@ -27,5 +29,7 @@ class TestColorApp(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertIn(b'#00ff00', response.data)
 
+
 if __name__ == '__main__':
     unittest.main()
+

@@ -11,7 +11,7 @@ def valid_hex(h):
 
 @app.route('/')
 def home():
-    color = os.environ.get('BG_COLOR', '#00ff0')
+    color = os.environ.get('BG_COLOR', '#00ff00')
 
     # simple validation: if invalid, return 500 (this is for testing failing conditions)
     if not valid_hex(color):
